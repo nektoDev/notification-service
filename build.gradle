@@ -51,6 +51,7 @@ allprojects {
 		compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
 		compile("org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}")
 		compile group: 'com.google.guava', name: 'guava', version: '11.0.2'
+		compile group: 'com.github.briandilley.jsonrpc4j', name: 'jsonrpc4j', version: '1.4.6'
 		testCompile('org.springframework.boot:spring-boot-starter-test')
 	}
 }
