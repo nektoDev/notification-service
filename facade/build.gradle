@@ -1,3 +1,5 @@
+version = project.version
+
 dependencies {
     compile project(":api")
     compile project(":service")
