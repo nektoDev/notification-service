@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import ru.nektodev.notification.model.Recipient;
 
 import javax.annotation.PostConstruct;
+import java.util.NoSuchElementException;
 
 /**
  * @author nektodev
@@ -34,6 +35,9 @@ public class NotificationService {
     public void sendMessage(String name, String message) {
         LOG.info("Send message: [" + name + "] " + message);
         Recipient recipient = recipientService.get(name);
+        if (recipient == null) {
+            throw new NoSuchElementException("User [" + name + "] has't been founded.");
+        }
         bot.sendMessage(recipient.getTelegramId(), message);
     }
 }
