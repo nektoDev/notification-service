@@ -9,6 +9,8 @@ import ru.nektodev.notification.api.NotificationFacade;
 import ru.nektodev.notification.model.exception.IncorrectRequestException;
 import ru.nektodev.notification.service.NotificationService;
 
+import java.util.List;
+
 /**
  * @author nektodev
  * @date 17/10/2016
@@ -26,6 +28,11 @@ public class NotificationFacadeImpl implements NotificationFacade {
     public void sendMessage(String name, String message) {
         validateSendMessageRequest(name, message);
         service.sendMessage(name, message);
+    }
+
+    @Override
+    public void sendMessage(List<String> names, String message) {
+        service.sendMessage(names, message);
     }
 
     private void validateSendMessageRequest(String name, String message) {
